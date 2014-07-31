@@ -1,0 +1,3 @@
+ * Napisaæ program z shared resource u¿ywaj¹cy lokowania
+  - cos co przyda sie przy 10000TG
+  - czytanie i zapis do bazy TG z 3 ró¿nych watków
