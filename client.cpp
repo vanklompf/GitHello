@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <cstring>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
@@ -53,7 +52,7 @@ void client_main(int port)
     n = read(socketDescriptor,buffer,255);
     if (n < 0)
     {
-         error("ERROR reading from socket");
+        error("ERROR reading from socket.");
     }
     printf("CLIENT: %s\n",buffer);
     close(socketDescriptor);
