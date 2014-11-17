@@ -46,7 +46,7 @@ void server_main(int port)
          error("ERROR on accept");
     }
 
-    std::memset(&buffer, 0, 256);
+    memset(&buffer, 0, 256);
     n = read(incomingSocketDescriptor, buffer, 255);
     if (n < 0)
     {

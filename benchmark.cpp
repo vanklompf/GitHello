@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <chrono>
 #include <ctime>
-//#include <thread>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
 #include <vector>
 #include <array>
 
@@ -16,8 +16,8 @@ struct glyph_info_t
 
 #define ARRAY_SIZE(A) (sizeof(A)/sizeof(A[0]))
 
-static const uint32_t HUGE_SIZE = 240000;
-static const uint32_t HUGE_LOOP_COUNT = 1000000;
+static const int32_t HUGE_SIZE = 240000;
+static const int32_t HUGE_LOOP_COUNT = 1000000;
 
 glyph_info_t glyph_array[HUGE_SIZE];
 std::vector <glyph_info_t> glyph_vector(HUGE_SIZE);
@@ -66,7 +66,7 @@ void bsearch_huge()
 	{
         ptr = (glyph_info_t *) bsearch(&to_be_found, glyph_array, HUGE_SIZE, sizeof(glyph_info_t), compareGlyph);
 	}
-    printf("Found: %d\n", ptr - glyph_array);
+    printf("Found: %ld\n", ptr - glyph_array);
 }
 
 void stl_bsearch_huge()
@@ -76,7 +76,7 @@ void stl_bsearch_huge()
 	{
         ptr = std::lower_bound(&glyph_array[0], &glyph_array[HUGE_SIZE], to_be_found, glyph_compare);
 	}
-    printf("Found: %d\n", ptr - glyph_array);
+    printf("Found: %ld\n", ptr - glyph_array);
 }
 
 void stl_bsearch_huge_vector()
@@ -86,12 +86,12 @@ void stl_bsearch_huge_vector()
 	{
         ptr = std::lower_bound(glyph_vector.begin(), glyph_vector.end(), to_be_found, glyph_compare);
 	}
-    printf("Found: %d\n", ptr - glyph_vector.begin());
+    printf("Found: %ld\n", ptr - glyph_vector.begin());
 }
 
 void manual_bsearch()
 {
-	int index_found;
+    int index_found = -1;
 
 	for (int i = 0; i < HUGE_LOOP_COUNT; i++)
 	{
@@ -149,8 +149,6 @@ int main()
 
     printf("stl_bsearch_huge: %d\n", measure_time(stl_bsearch_huge));
     printf("stl_bsearch_huge_vector: %d\n", measure_time(stl_bsearch_huge_vector));
-
-
 }
 
 
