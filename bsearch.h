@@ -9,6 +9,10 @@ struct glyph_info_t {
     uint16_t something_else;
 };
 
+inline bool glyphCompareTyped(const glyph_info_t &i, const glyph_info_t &j)
+{
+	return (i.glyph_number < j.glyph_number);
+}
 int bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);
 
 int bsearchC_Style(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);

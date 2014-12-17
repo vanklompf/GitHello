@@ -1,25 +1,28 @@
 #include <algorithm>
 #include <iostream>
+#include <vector>
+#include <cstdlib>
 
 #include "bsearch.h"
 
-static bool glyphCompareTyped(const glyph_info_t &i, const glyph_info_t &j) {
-    return (i.glyph_number < j.glyph_number);
-}
-
-static int glyphCompareVoid(const void *a, const void *b) {
-    if (((const glyph_info_t *) a)->glyph_number < ((const glyph_info_t *) b)->glyph_number) {
+static int glyphCompareVoid(const void *a, const void *b) 
+{
+    if (((const glyph_info_t *) a)->glyph_number < ((const glyph_info_t *) b)->glyph_number) 
+	{
         return -1;
     }
-    else if (((const glyph_info_t *) a)->glyph_number == ((const glyph_info_t *) b)->glyph_number) {
+    else if (((const glyph_info_t *) a)->glyph_number == ((const glyph_info_t *) b)->glyph_number) 
+	{
         return 0;
     }
-    else {
+    else 
+	{
         return 1;
     }
 }
 
-int bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found) {
+int bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found) 
+{
     int first = 0;
     int last = size - 1;
     int middle = (first + last) / 2;
@@ -40,18 +43,21 @@ int bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph
     return size;
 }
 
-int bsearchC_Style(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found) {
+int bsearchC_Style(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found) 
+{
     const glyph_info_t *found = (glyph_info_t *) bsearch(to_be_found, glyph_array, size, sizeof(glyph_info_t), glyphCompareVoid);
-    return size;
+	return found ? std::distance(glyph_array, found) : size;
 }
 
-int bsearchStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found) {
+int bsearchStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found) 
+{
     const glyph_info_t *found = std::lower_bound(&glyph_array[0], &glyph_array[size], to_be_found, glyphCompareTyped);
     return std::distance(glyph_array, found);
 }
 
 
-int bsearchStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found) {
+int bsearchStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found) 
+{
     std::vector<glyph_info_t>::const_iterator found = std::lower_bound(glyph_vector.begin(), glyph_vector.end(), to_be_found, glyphCompareTyped);
     return std::distance(glyph_vector.begin(), found);
 }

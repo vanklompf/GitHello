@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -O3 -std=c++11 -pthread  -Wall    CMakeFiles/benchmark.dir/benchmark.cpp.o  -o benchmark -rdynamic 

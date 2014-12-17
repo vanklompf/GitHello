@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -O3 -std=c++11 -pthread  -Wall    CMakeFiles/client_server.dir/client.cpp.o CMakeFiles/client_server.dir/server.cpp.o CMakeFiles/client_server.dir/network_main.cpp.o  -o client_server -rdynamic 

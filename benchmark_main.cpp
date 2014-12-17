@@ -1,11 +1,17 @@
 #include <vector>
 #include <functional>
 #include <cstdio>
+#include <algorithm>
 #include "bsearch.h"
 #include "benchmark_utils.h"
 
+#ifdef __arm__
+static const int32_t BSEARCH_REPEATS = 500000;
+static const int32_t BSEARCH_DATA_SIZE = 9600000;
+#else
 static const int32_t BSEARCH_REPEATS = 5000000;
 static const int32_t BSEARCH_DATA_SIZE = 4800000;
+#endif
 
 typedef uint32_t(*benchmark_func)();
 
@@ -17,9 +23,7 @@ static uint32_t anti_optimizer;
 struct benchmark_definition_t {
     const char *name;
     uint32_t times;
-
     void(*func)();
-
     int32_t time;
 };
 
@@ -66,7 +70,7 @@ int main() {
         printf("%s\t %d\n", b.name, b.time);
     }
 
-    std::getchar();
+    //std::getchar();
 }
 
 

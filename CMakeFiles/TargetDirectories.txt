@@ -1,0 +1,3 @@
+/home/shares/public/GitHello/CMakeFiles/benchmark.dir
+/home/shares/public/GitHello/CMakeFiles/client_server.dir
+/home/shares/public/GitHello/CMakeFiles/multithread_basic.dir

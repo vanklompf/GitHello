@@ -1,4 +1,9 @@
-uint32_t runAndMeasure(void(*work)(void), int times) {
+#include <chrono>
+#include "benchmark_utils.h"
+
+
+uint32_t runAndMeasure(void(*work)(void), int times) 
+{
     std::chrono::steady_clock::time_point start, end;
     start = std::chrono::steady_clock::now();
 
@@ -9,6 +14,6 @@ uint32_t runAndMeasure(void(*work)(void), int times) {
     end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
-    return std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_seconds).count();
+    return (uint32_t)std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_seconds).count();
 }
 
