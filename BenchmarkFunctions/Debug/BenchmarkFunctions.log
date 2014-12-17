@@ -1,9 +1,0 @@
-﻿Build started 2014-12-16 22:58:23.
-     1>Project "Y:\GitHello\BenchmarkFunctions\BenchmarkFunctions.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         BenchmarkFunctions.vcxproj -> Y:\GitHello\Debug\BenchmarkFunctions.lib
-     1>Done Building Project "Y:\GitHello\BenchmarkFunctions\BenchmarkFunctions.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.59

@@ -1,4 +1,5 @@
-/Debug/
+/visual/
+/CMakeFiles/
 *.sdf
 *.suo
 *.opensdf

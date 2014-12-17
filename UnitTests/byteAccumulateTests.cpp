@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "CppUnitTest.h"
 #include "byte_accumulate.h"
 #include <vector>
