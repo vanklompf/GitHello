@@ -65,5 +65,26 @@ namespace UnitTests
 
 			Assert::AreEqual(101u, byteAccumulate_StlVector(test_vector));
 		}
+
+		TEST_METHOD(TestByteAccumulate_Unrolled)
+		{
+			uint8_t test_array[] = { 1, 2, 3 };
+
+			Assert::AreEqual(6u, byteAccumulate_Unrolled(test_array, 3));
+		}
+
+		TEST_METHOD(TestByteAccumulate_Unrolled_singleValue)
+		{
+			uint8_t test_array[] = { 101 };
+
+			Assert::AreEqual(101u, byteAccumulate_Unrolled(test_array, 1));
+		}
+
+		TEST_METHOD(TestByteAccumulate_Unrolled_endUnaligned)
+		{
+			uint8_t test_array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+
+			Assert::AreEqual(91u, byteAccumulate_Unrolled(test_array, 13));
+		}
 	};
 }

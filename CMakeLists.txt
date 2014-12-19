@@ -22,13 +22,13 @@ endif()
 #    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os")
 #endif()
 
-#if(HAS_O2_FLAG)
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
-#endif()
-
-if(HAS_O3_FLAG)
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+if(HAS_O2_FLAG)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 endif()
+
+#if(HAS_O3_FLAG)
+#   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+#endif()
 
 #if(HAS_FLTO_FLAG)
 #   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto")
@@ -48,4 +48,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto")
 
 add_executable(multithread_basic main.cpp)
 add_executable(client_server client.cpp server.cpp network_main.cpp client.h server.h)
-add_executable(benchmark benchmark_main.cpp bsearch.cpp benchmark_utils.cpp benchmark_utils.h bsearch.h)
+add_executable(benchmark benchmark_main.cpp bsearch.cpp benchmark_utils.cpp byte_accumulate.cpp)
