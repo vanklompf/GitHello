@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "UnitTests\UnitTests.vcxproj", "{82E159B6-529C-4353-8106-E064B6418027}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application", "BenchmarkApp.vcxproj", "{4A50C309-6C8E-4D9D-BC32-B593026ABE93}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BenchmarkFunctions", "BenchmarkFunctions.vcxproj", "{CBB5E326-A14A-4DA2-8AC6-72150EDF1567}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{620F167F-FF06-4D25-8A68-CBA6950F4ED1}"
+	ProjectSection(SolutionItems) = preProject
+		ExampleResult.txt = ExampleResult.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

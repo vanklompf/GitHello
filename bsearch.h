@@ -9,17 +9,19 @@ struct glyph_info_t {
     uint16_t something_else;
 };
 
-inline bool glyphCompareTyped(const glyph_info_t &i, const glyph_info_t &j)
-{
-	return (i.glyph_number < j.glyph_number);
-}
-int bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);
+uint32_t bsearchHandCrafted(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);
 
-int bsearchC_Style(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);
+uint32_t bsearchC_Style(const glyph_info_t *glyph_array, size_t size, const glyph_info_t *to_be_found);
 
-int bsearchStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found);
+uint32_t bsearchFuncStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found);
+uint32_t bsearchFunctorStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found);
+uint32_t bsearchLambdaStlPlainArray(const glyph_info_t *glyph_array, size_t size, const glyph_info_t &to_be_found);
 
-int bsearchStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found);
+
+uint32_t bsearchFuncStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found);
+uint32_t bsearchFunctorStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found);
+uint32_t bsearchLambdaStlInVector(const std::vector<glyph_info_t> &glyph_vector, const glyph_info_t &to_be_found);
+
 
 template<size_t ARRAY_SIZE>
 int bsearchStlContainerArray(const std::array<glyph_info_t *, ARRAY_SIZE> glyph_array, const glyph_info_t &to_be_found) {

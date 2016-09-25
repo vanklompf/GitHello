@@ -1,0 +1,8 @@
+Manual binary search                     211
+C Style binary search                    806
+STL function binary search (array)       713
+STL functor binary search (array)        358
+STL lambda binary search (array)         371
+STL functor binary search (vector)       415
+STL function binary search (vector)      733
+STL lambda binary search (vector)        414

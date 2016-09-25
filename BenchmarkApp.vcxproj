@@ -87,10 +87,6 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Y:\GitHello\benchmark_main.cpp" />
-    <ClCompile Include="Y:\GitHello\benchmark_utils.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="benchmark_utils.h" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +101,10 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="benchmark_main.cpp" />
+    <ClCompile Include="benchmark_utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,9 +3,9 @@
 #include <numeric>
 #include <vector>
 
-uint32_t byteAccumulate_HandCraftedDoWhilePtr(const uint8_t* byte_array, size_t size)
+uint64_t byteAccumulate_HandCraftedDoWhilePtr(const uint8_t* byte_array, size_t size)
 {
-	uint32_t result = 0;
+	uint64_t result = 0;
 	do
 	{
 		result += *byte_array++;
@@ -14,9 +14,9 @@ uint32_t byteAccumulate_HandCraftedDoWhilePtr(const uint8_t* byte_array, size_t 
     return result;
 }
 
-uint32_t byteAccumulate_HandCraftedForArray(const uint8_t* byte_array, size_t size)
+uint64_t byteAccumulate_HandCraftedForArray(const uint8_t* byte_array, size_t size)
 {
-	uint32_t result = 0;
+	uint64_t result = 0;
 	for (unsigned int i = 0; i < size; i++)
 	{
 		result += byte_array[i];
@@ -24,20 +24,33 @@ uint32_t byteAccumulate_HandCraftedForArray(const uint8_t* byte_array, size_t si
 	return result;
 }
 
-uint32_t byteAccumulate_StlPlainArary(const uint8_t* byte_array, size_t size)
+uint64_t byteAccumulate_HandCraftedUnrolledForArray(const uint8_t* byte_array, size_t size)
 {
-	return std::accumulate(byte_array, byte_array + size, 0);
+	uint64_t result = 0;
+	for (unsigned int i = 0; i < size / 4; i+=4)
+	{
+		result += byte_array[i];
+		result += byte_array[i+1];
+		result += byte_array[i+2];
+		result += byte_array[i+3];
+	}
+	return result;
 }
 
-uint32_t byteAccumulate_StlVector(const std::vector<uint8_t> &byte_vector)
+uint64_t byteAccumulate_StlPlainArary(const uint8_t* byte_array, size_t size)
 {
-	return std::accumulate(byte_vector.begin(), byte_vector.end(), 0);
+	return std::accumulate(byte_array, byte_array + size, 0ull);
+}
+
+uint64_t byteAccumulate_StlVector(const std::vector<uint8_t> &byte_vector)
+{
+	return std::accumulate(byte_vector.begin(), byte_vector.end(), 0ull);
 }
 
 
-uint32_t byteAccumulate_Unrolled(const uint8_t* byte_array, size_t size)
+uint64_t byteAccumulate_Unrolled(const uint8_t* byte_array, size_t size)
 {
-	uint32_t result = 0;
+	uint64_t result = 0;
 
 	while (((uint32_t)byte_array & 0x03) && size)
 	{
